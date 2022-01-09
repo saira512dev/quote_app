@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Red+Hat+Display:wght@500;700;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --Soft-blue: hsl(215, 51%, 70%);
+  --Cyan: hsl(178, 100%, 50%);
+  --Body-bg: hsl(217, 54%, 11%);
+  --Main-bg: hsl(216, 50%, 16%);
+  --Line-color: hsl(215, 32%, 27%);
+  --White: hsl(0, 0%, 100%);
+  --Overlay-color: hsla(178, 100%, 50%, 0.5);
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+}
+
+.container {
+  background: var(--Body-bg);
+  border: 1px solid white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+
+  &:hover {
+    color: var(--Cyan);
+  }
+}
+
+main {
+  background: var(--Main-bg);
+  width: 500px;
+  margin: 5px auto;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.card {
+  position: relative;
+  top: 0;
+  left: 0;
+  margin: 20px 20px 0px 20px;
+  height: 100%;
+
+  nav {
+    display: Flex;
+    flex-wrap: wrap;
+    margin: 20px 0px;
+    justify-content: space-between;
+  }
+
+  button {
+    background: var(--Cyan);
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 15px 15px 15px 15px;
+    border: none;
+    color: var(--Body-bg);
+    font-weight: 550;
+    
+    &.active{
+      background: var(--Body-bg);
+      color: var(--White);
+    }
+
+    &:hover {
+      @extend .active;
+    }
+  }
+}
+
+.more-button{
+  width:180px;
+  text-align: center;
+  position:relative;
+  left:50%;
+  transform:translate(-50%,0%);
+
+  button{
+    width:180px;
+    margin: 10px 0;
+  }
+}
+
+hr {
+  margin-bottom: 5px;
+  border: 1px solid var(--Line-color);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+
+  .footer-text {
+    margin-bottom: 10px;
+
+    a{
+      text-decoration: none;
+    }
+
+    #footer-text-part-1 {
+      color: var(--Soft-blue);
+    }
+
+    #footer-text-name {
+      color: var(--White);
+      margin-left: 5px;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        color: var(--Cyan);
+      }
+    }
+  }
+}
+
+.displayQuote{
+  ul {
+    padding: 3px;
+  
+    li {
+      background: var(--Soft-blue);
+      border-radius: 5px 5px 5px 5px;
+  
+      list-style: none;
+      margin: 10px 3px;
+      padding: 10px;
+      display:flex;
+      flex-direction: column;
+  
+      .author{
+        border-radius:5px;
+        padding:3px 5px;
+        margin-top: 5px;
+        background:#d0b8da;
+        width:160px;
+        min-height: 30px;text-align: center;  
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
