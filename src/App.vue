@@ -5,16 +5,16 @@
         <div class="card">
           <h1>Quote App</h1>
           <nav>
-            <router-link :to="{ name: 'Home' } "><Button name="Home"  :shuffledQuotes="shuffledQuotes" :class="{ active: isHomeActive }" @click="toggleClasses"
+            <router-link :to="{ name: 'Home' } "><Button name="Home"  :shuffledQuotes="shuffledQuotes" :class="{ active: isHomeActive }" @click="toggleClasses($event)"
             /></router-link>
             <router-link :to="{ name: 'ProgrammingQuotes' }"
-              ><Button name="Programming Quotes"   :shuffledQuotes="shuffledQuotes" :class="{ active: isProgrammingQuotesActive }" @click="toggleClasses"
+              ><Button name="Programming Quotes"   :shuffledQuotes="shuffledQuotes" :class="{ active: isProgrammingQuotesActive }" @click="toggleClasses($event)"
             /></router-link>
             <router-link :to="{ name: 'LifeQuotes' }"
-              ><Button name="Life Quotes"  :shuffledQuotes="shuffledQuotes" :class="{ active: isLifeQuotesActive }" @click="toggleClasses"
+              ><Button name="Life Quotes"  :shuffledQuotes="shuffledQuotes" :class="{ active: isLifeQuotesActive }" @click="toggleClasses($event)"
             /></router-link>
              <router-link :to="{ name: 'Search' }"
-              ><Button name="Search" :shuffledQuotes="shuffledQuotes" :class="{ active: isSearchActive }" @click="toggleClasses"
+              ><Button name="Search" :shuffledQuotes="shuffledQuotes" :class="{ active: isSearchActive }" @click="toggleClasses($event)"
             /></router-link>
           </nav>
           <router-view :quotes="quotes" :programmingQuotes="programmingQuotes" 
@@ -98,21 +98,22 @@ export default {
       this.countLifeQuoteClicks=0;
     },
     toggleClasses(event){
+
       this.isHomeActive=false;
       this.isSearchActive=false;
       this.isProgrammingQuotesActive=false;
       this.isLifeQuotesActive=false;
 
-      if(event.srcElement.__vnode.children=="Home"){
+      if(event.target.innerHTML=="Home"){
       this.isHomeActive=true;
-      } else if(event.srcElement.__vnode.children=="Programming Quotes"){
+      } else if(event.target.innerHTML=="Programming Quotes"){
         this.isProgrammingQuotesActive=true;
-      } else if(event.srcElement.__vnode.children=="Life Quotes"){
+      } else if(event.target.innerHTML=="Life Quotes"){
         this.isLifeQuotesActive=true;
       } else {
         this.isSearchActive=true;
       }
-      //console.log(event.srcElement.__vnode)
+      //console.log(event.target.innerHTML);
     },
     paginateQuotes(page,tempQuotes){
       const start = (page-1)*5;
