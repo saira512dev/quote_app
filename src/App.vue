@@ -112,7 +112,7 @@ export default {
       } else {
         this.isSearchActive=true;
       }
-      //console.log(event.srcElement.__vnode.children)
+      //console.log(event.srcElement.__vnode)
     },
     paginateQuotes(page,tempQuotes){
       const start = (page-1)*5;
