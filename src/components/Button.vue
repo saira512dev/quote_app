@@ -1,5 +1,5 @@
 <template>
-  <button v-on="this.name.includes('More') ?{ click:this.moreQuotes} : {}">{{ name }}</button>
+  <button v-on="this.name.includes('More') ?{ click:this.moreQuotes} : null">{{ name }}</button>
 </template>
 
 <script>
