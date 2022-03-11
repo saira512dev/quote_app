@@ -1,7 +1,7 @@
 <template>
   <div class="displayQuote">
     <ul>
-      <li v-for="quote in quotes" :key="quote.text ? quote.text:quote.en">
+      <li v-for="quote in quotes" :key="(quote.text || quote.en || quote.content)">
         " {{ quote.text ? quote.text:quote.en}}{{ quote.content ? quote.content:''}} " 
         <div class ="author">{{ quote.author==null ? "Unknown" :quote.author}}</div>
       </li>

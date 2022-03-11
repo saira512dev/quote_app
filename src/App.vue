@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <main>
+      <main> 
         <div class="card">
           <h1>Quote App</h1>
           <nav>
@@ -20,9 +20,9 @@
           <router-view :quotes="quotes" :programmingQuotes="programmingQuotes" 
           :shuffledQuotes="shuffledQuotes"  :paginateQuotes="paginateQuotes" 
           :firstPageQuotes ="firstPageQuotes" :firstPageProgrammingQuotes ="firstPageProgrammingQuotes"
-          :firstPageLifeQuotes ="firstPageLifeQuotes"  />
-          <hr />
+          :firstPageLifeQuotes ="firstPageLifeQuotes"  :allQuotes="combinedQuotes" />
         </div>
+         <hr />
         <Footer />
       </main>
     </div>
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+
+
 import "@/scss/style.scss";
 import Button from "./components/Button.vue";
 import DisplayQuote from "./components/DisplayQuote.vue";
@@ -46,6 +48,7 @@ export default {
       firstPageLifeQuotes:[],
       programmingQuotes:[],
       lifeQuotes:[],
+      combinedQuotes:[],
       isHomeActive:false,
       isProgrammingQuotesActive:false,
       isLifeQuotesActive:false,
@@ -120,6 +123,9 @@ export default {
       const end = page*5;
        
       return tempQuotes.slice(start,end);
+    },
+    allQoutes(){
+      this.combinedQuotes = [...this.quotes,...this.programmingQuotes,...this.lifeQuotes];
     }
   },
   components: {
@@ -127,6 +133,7 @@ export default {
     Button,
     DisplayQuote,
   },
+
   async created() {
     const res = await fetch("https://type.fit/api/quotes");
     this.quotes = await res.json();
@@ -145,7 +152,8 @@ export default {
     this.lifeQuotes = (await res2.json()).results;
     //this.shuffledQuotes("lifeQuotes");
     this.firstPageLifeQuotes = this.paginateQuotes(1,this.lifeQuotes);
-
+  this.allQoutes();
+  console.log(this.combinedQuotes);
   },
 };
 </script>

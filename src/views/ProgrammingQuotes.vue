@@ -12,7 +12,7 @@ import Button from "../components/Button.vue";
 
 
 export default {
-  props:['quotes','programmingQuotes',"shuffledQuotes","paginateQuotes","firstPageQuotes","firstPageProgrammingQuotes","firstPageLifeQuotes","quoteOfTheHour"],
+  props:['quotes','programmingQuotes',"shuffledQuotes","paginateQuotes","firstPageQuotes","firstPageProgrammingQuotes","firstPageLifeQuotes","quoteOfTheHour","allQuotes"],
   data() {
     return {
     //page:1
@@ -25,14 +25,6 @@ components:{
 
 
 }
-// function init(){
-//         console.log("hai")
-
-// //this.paginateQuotes(this.page,this.programmingQuotes);
-// };
-// init();
-//console.log(this.paginateQuotes(this.page,this.programmingQuotes));
-//console.log(this.firstPage);
 
 </script>
 
