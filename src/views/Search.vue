@@ -8,22 +8,12 @@
       <Button v-if="showPreviousButton" @click="getPreviousPage" name="Previous"    :shuffledQuotes="shuffledQuotes" />
       <Button v-if="showNextButton"  @click="getNextPage"  name="Next"    :shuffledQuotes="shuffledQuotes" />
     </div>
-      
-
-
-   
 
 </template>
 
 <script>
 import DisplayQuote from "../components/DisplayQuote.vue";
 import Button from "../components/Button.vue";
-
-const previousButton = document.querySelector('#previousButton');
-const nextButton = document.querySelector('#nextButton');
-console.log(previousButton)
-// nextButton.addEventListener('click', this.getNextPage);
-// previousButton.addEventListener('click', this.getPreviousPage);
 
 export default {
 
